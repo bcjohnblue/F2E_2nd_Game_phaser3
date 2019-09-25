@@ -1,5 +1,6 @@
 import Phaser from 'phaser';
 import gameStart from './gameStart';
+import gamePlay from './gamePlay';
 // import logoImg from "./assets/logo.png";
 
 const width = document.body.offsetWidth;
@@ -7,10 +8,19 @@ const height = '100vh';
 
 const config = {
   type: Phaser.AUTO,
-  // parent: 'app',
+  parent: '#app',
   width,
   height,
-  scene: [gameStart]
+  physics: {
+    default: 'arcade',
+    arcade: {
+      // gravity: {
+      //   y: 1500
+      // },
+      debug: true
+    }
+  },
+  scene: [gamePlay, gameStart]
 };
 
 const game = new Phaser.Game(config);
